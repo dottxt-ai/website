@@ -1,0 +1,83 @@
+<html>
+    <head>
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=VT323&display=swap" rel="stylesheet">
+        <script src="https://unpkg.com/typeit@8.7.1/dist/index.umd.js"></script>
+        <style>
+        body {
+        background-color: white;
+        position: relative;
+        }
+
+        .container {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 50%;
+            height: 50%;
+            text-align: center;
+        }
+
+        .container-img {
+            display: inline-block;
+        }
+
+        img {
+            width:70%;
+            height: auto;
+        }
+
+        .container-animation {
+            color: black;
+            font-size: 5rem;
+            font-family: 'VT323', monospace;
+        }
+
+        </style>
+    </head>
+    <body>
+        <div class="container">
+        <div class="container-grid">
+            <div class="container-img">
+                <a href="mailto:iloveyourwebsite@dottxt.co"><img src="logo.png"></img></a>
+            </div>
+            <div class="container-animation">
+                <p id="animation"></p>
+            </div>
+        </div>
+        </div>
+    </body>
+
+    <script>
+    new TypeIt("#animation", {
+    speed: 50,
+    })
+        .type("JSON_data.txt", {delay: 500})
+        .move(-9)
+        .delete(5)
+        .type("XML", {delay: 500})
+        .delete(3)
+        .type("synthetic", {delay: 500})
+        .delete(9)
+        .move(5)
+        .delete(5)
+        .type("named_entities", {delay: 500})
+        .delete(14)
+        .type("classification", {delay: 500})
+        .delete(14)
+        .type("SQL_code", {delay: 500})
+        .move(-5)
+        .delete(3)
+        .type("Python", {delay: 500})
+        .move(5)
+        .delete(11)
+        .move(5)
+        .break({delay: 500})
+        .type("LLMs machines understand")
+        .break({delay: 2000})
+        .type("<div style='font-size:2rem'>(click on icon)</div>")
+        .go();
+    </script>
+</html>
