@@ -16,8 +16,21 @@
         <script src="https://unpkg.com/typeit@8.7.1/dist/index.umd.js"></script>
         <style>
         body {
-        background-color: white;
-        position: relative;
+            background-color: white;
+            position: relative;
+        }
+
+        .header {
+            margin: 2rem;
+            text-align: center;
+            color: black;
+            font-size: 2rem;
+            text-decoration: underline;
+            font-family: 'VT323', monospace;
+        }
+
+        .header a {
+            color: black;
         }
 
         .container {
@@ -25,7 +38,7 @@
             top: 50%;
             left: 50%;
             transform: translate(-50%, -50%);
-            width: 90%;
+            width: 100%;
             height: 50%;
             text-align: center;
         }
@@ -52,15 +65,16 @@
         <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-WHPV7F52"
         height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         <!-- End Google Tag Manager (noscript) -->
+        <div class="header">
+          We are hiring!
+        </div>
         <div class="container">
-        <div class="container-grid">
             <div class="container-img">
                 <a href="mailto:iloveyourwebsite@dottxt.co"><img src="logo.png"></img></a>
             </div>
             <div class="container-animation">
                 <p id="animation"></p>
             </div>
-        </div>
         </div>
     </body>
 
