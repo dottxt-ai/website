@@ -79,34 +79,41 @@
     </body>
 
     <script>
-    new TypeIt("#animation", {
-    speed: 50,
-    })
-        .type("JSON_data.txt", {delay: 500})
-        .move(-9)
-        .delete(5)
-        .type("XML", {delay: 500})
-        .delete(3)
-        .type("synthetic", {delay: 500})
-        .delete(9)
-        .move(5)
-        .delete(5)
-        .type("named_entities", {delay: 500})
-        .delete(14)
-        .type("classification", {delay: 500})
-        .delete(14)
-        .type("SQL_code", {delay: 500})
-        .move(-5)
-        .delete(3)
-        .type("Python", {delay: 500})
-        .move(5)
-        .delete(11)
-        .move(5)
-        .break({delay: 500})
-        .type("LLMs machines understand")
-        .break({delay: 2000})
-        .type("<div style='font-size:2rem'>(click on icon)</div>")
-        .move(-45, {instant: true})
-        .go();
+        new TypeIt("#animation", {
+            speed: 50,
+            afterComplete: function (instance) {
+                instance.destroy();
+            }
+        })
+            .type("JSON_data.txt", {delay: 500})
+            .move(-9)
+            .delete(5)
+            .type("XML", {delay: 500})
+            .delete(3)
+            .type("synthetic", {delay: 500})
+            .delete(9)
+            .move(5)
+            .delete(5)
+            .type("product_list", {delay: 500})
+            .delete(12)
+            .type("named_entities", {delay: 500})
+            .delete(14)
+            .type("sentiments", {delay: 500})
+            .delete(10)
+            .type("SQL_code", {delay: 500})
+            .move(-5)
+            .delete(3)
+            .type("Python", {delay: 500})
+            .move(5)
+            .delete(11)
+            .type("ui_elements", {delay: 500})
+            .delete(11)
+            .type("game_characters", {delay: 500})
+            .delete(15)
+            .move(5)
+            .break({delay: 500})
+            .type("LLMs machines understand")
+            .move(-29, {instant: true})
+            .go();
     </script>
 </html>
