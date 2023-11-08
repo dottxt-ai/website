@@ -25,12 +25,43 @@
             text-align: center;
             color: black;
             font-size: 2rem;
-            text-decoration: underline;
             font-family: 'VT323', monospace;
         }
 
-        .header a {
+       .header a {
             color: black;
+            text-decoration: underline;
+        }
+
+        .header a:hover {
+            color: #bfbfbf;
+        }
+
+        .header ul {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+        }
+
+        .header img {
+            width: auto;
+            height: 2rem;
+            vertical-align: text-top;
+        }
+
+        .header li {
+            display: inline;
+            padding: 0 1rem;
+        }
+
+        #hiring {
+            animation: blinker 1.3s step-start infinite;
+        }
+
+        @keyframes blinker {
+            50% {
+                opacity: 0;
+            }
         }
 
         .container {
@@ -66,11 +97,13 @@
         height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         <!-- End Google Tag Manager (noscript) -->
         <div class="header">
-          We are hiring!
+          <ul>
+              <li id="hiring"><a href="mailto:contact@dottxt.co?subject=I want to work with you!">We are hiring!</a></li>
+          </ul>
         </div>
         <div class="container">
             <div class="container-img">
-                <a href="mailto:iloveyourwebsite@dottxt.co"><img src="logo.png"></img></a>
+                <a href="https://github.com/outlines-dev/outlines"><img src="logo.png"></img></a>
             </div>
             <div class="container-animation">
                 <p id="animation"></p>
