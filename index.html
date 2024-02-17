@@ -1,147 +1,138 @@
 <html>
     <head>
-        <title>dottxt - LLMs machines understand</title>
-        <!-- Google tag (gtag.js) -->
-        <script async src="https://www.googletagmanager.com/gtag/js?id=G-BDYF9RSP36"></script>
+        <title>dottxt - Token Engineering</title>
+        <!-- PostHog analytics -->
         <script>
-        window.dataLayer = window.dataLayer || [];
-        function gtag(){dataLayer.push(arguments);}
-        gtag('js', new Date());
-
-        gtag('config', 'G-BDYF9RSP36');
+            !function(t,e){var o,n,p,r;e.__SV||(window.posthog=e,e._i=[],e.init=function(i,s,a){function g(t,e){var o=e.split(".");2==o.length&&(t=t[o[0]],e=o[1]),t[e]=function(){t.push([e].concat(Array.prototype.slice.call(arguments,0)))}}(p=t.createElement("script")).type="text/javascript",p.async=!0,p.src=s.api_host+"/static/array.js",(r=t.getElementsByTagName("script")[0]).parentNode.insertBefore(p,r);var u=e;for(void 0!==a?u=e[a]=[]:a="posthog",u.people=u.people||[],u.toString=function(t){var e="posthog";return"posthog"!==a&&(e+="."+a),t||(e+=" (stub)"),e},u.people.toString=function(){return u.toString(1)+".people (stub)"},o="capture identify alias people.set people.set_once set_config register register_once unregister opt_out_capturing has_opted_out_capturing opt_in_capturing reset isFeatureEnabled onFeatureFlags getFeatureFlag getFeatureFlagPayload reloadFeatureFlags group updateEarlyAccessFeatureEnrollment getEarlyAccessFeatures getActiveMatchingSurveys getSurveys onSessionId".split(" "),n=0;n<o.length;n++)g(u,o[n]);e._i.push([i,s,a])},e.__SV=1)}(document,window.posthog||[]);
+            posthog.init('phc_L5c1ud1IlNPP3574tv2tMIrOxEgWZOFbikLP5NdeR71',{api_host:'https://app.posthog.com'})
         </script>
-        <link rel="preconnect" href="https://fonts.googleapis.com">
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
         <link href="https://fonts.googleapis.com/css2?family=VT323&display=swap" rel="stylesheet">
+        <link href='//fonts.googleapis.com/css?family=Raleway:400,300,600' rel='stylesheet' type='text/css'>
         <script src="https://unpkg.com/typeit@8.7.1/dist/index.umd.js"></script>
         <style>
-        body {
-            background-color: white;
-            position: relative;
-        }
-
-        .header {
-            margin: 3rem;
-            text-align: center;
-            color: black;
-            font-size: 3rem;
-            font-family: 'VT323', monospace;
-        }
-
-       .header a {
-            color: black;
-            text-decoration: underline;
-        }
-
-        .header a:hover {
-            color: #bfbfbf;
-        }
-
-        .header ul {
-            list-style-type: none;
-            margin: 0;
-            padding: 0;
-        }
-
-        .header img {
-            width: auto;
-            height: 2rem;
-            vertical-align: text-top;
-        }
-
-        .header li {
-            display: inline;
-            padding: 0 1rem;
-        }
-
-        #hiring {
-            animation: blinker 1.3s step-start infinite;
-        }
-
-        @keyframes blinker {
-            50% {
-                opacity: 0;
+            body {
+                background-color: white;
+                margin: auto;
+                max-width: 900px;
+                padding:0 20px;
+                font-family: 'VT323';
+                color: #333;
             }
-        }
 
-        .container {
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            width: 100%;
-            height: 50%;
-            text-align: center;
-        }
+            .navbar {
+                position: relative;
+                overflow: hidden;
+            }
 
-        .container-img {
-            display: inline-block;
-        }
+           .navbar img {
+                position: absolute; /* remove the logo from the flow */
+                height: 4rem;
+                left: 10px;   /* move the logo to left */
+                top: 1.5rem;
+                vertical-align: middle;
+            }
 
-        img {
-            width:70%;
-            height: auto;
-        }
+            .navbar ul{
+                position: absolue;
+                top: 50%;
+                left: 50%;
+                text-align: center;
+            }
 
-        .container-animation {
-            color: black;
-            font-size: 5rem;
-            font-family: 'VT323', monospace;
-        }
+            .navbar li {
+                display: inline-block;
+                font-size: 4rem;
+                padding: 0 1rem 0 1rem;
+            }
+
+            .navbar a {
+                display: block;
+                padding: 10px;
+                color: #bfbfbf;
+                text-decoration: none;
+            }
+
+            .navbar a:hover {
+                color: black;
+            }
+
+            .logo {
+                position: relative;
+                overflow: hidden;
+            }
+
+            .logo img {
+                display: block;
+                width: 90%;
+                margin-left: auto;
+                margin-right: auto;
+                padding: 130px 0 40px 0;
+            }
+
+            .text {
+                text-align: center;
+                font-size: 3.6rem;
+                font-weight: 100;
+                padding: 0;
+                /* border: solid; */
+                vertical-align: top;
+            }
+
+            .text #animation {
+                height: 200px;
+                margin: 10px;
+            }
+
+            @keyframes blinker {
+                50% {
+                    opacity: 0;
+                }
+            }
+
+            .beta {
+                text-align: center;
+                font-size: 3.6rem;
+                font-weight: 300;
+                overflow: hidden;
+            }
+
+            .beta a {
+                animation: blinker 1.3s step-start infinite;
+            }
 
         </style>
-    </head>
+   </head>
     <body>
-        <!-- Google Tag Manager (noscript) -->
-        <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-WHPV7F52"
-        height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
-        <!-- End Google Tag Manager (noscript) -->
-        <div class="header">
-          <ul>
-              <li id="hiring"><a href="http://blog.dottxt.co/">Engineering Blog</a></li>
-          </ul>
+        <div class="navbar">
+            <img src="logo.png">
+            <ul>
+                <li><a href="http://blog.dottxt.co" target="_blank">Blog</a></li>
+                <li><a href="https://github.com/outlines-dev/outlines" target="_blank">GitHub</a></li>
+            </ul>
         </div>
-        <div class="container">
-            <div class="container-img">
-                <a href="https://github.com/outlines-dev/outlines"><img src="logo.png"></img></a>
-            </div>
-            <div class="container-animation">
-                <p id="animation"></p>
-            </div>
+        <div class="logo">
+            <img src="dotjson.png">
+        </div>
+        <div class="text">
+            <p id="animation"></p>
+        </div>
+        <div class="beta">
+            <img src="star.gif">
+            >>> <a href="https://h1xbpbfsf0w.typeform.com/to/ZgBCvJHF">Access the beta API</a> <<<
+            <img src="star.gif">
         </div>
     </body>
 
     <script>
         new TypeIt("#animation", {
-            speed: 50,
+            speed: 60,
             afterComplete: function (instance) {
                 instance.destroy();
             }
         })
-            .type("data.xml", {delay: 500})
-            .delete(3)
-            .type("json", {delay: 500})
-            .move(-9)
-            .type("synthetic_", {delay: 500})
-            .move(4)
-            .delete(14)
-            .type("named_entities", {delay: 500})
-            .move(5)
-            .delete(19)
-            .type("request.sql", {delay: 500})
-            .delete(11)
-            .type("script.py", {delay: 500})
-            .delete(2)
-            .type("js", {delay: 500})
-            .move(-3)
-            .delete(6)
-            .type("ui_elements", {delay: 500})
-            .move(3)
-            .delete(14)
-            .type(".txt", {delay: 500})
-            .break({delay: 500})
-            .type("Token Engineering")
-            .move(-29, {instant: true})
-            .go();
+        .type("A fast, reliable model.")
+        .break()
+        .type("Guaranteed JSON.")
+        .go();
     </script>
 </html>
