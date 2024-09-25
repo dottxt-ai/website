@@ -1,141 +1,211 @@
 <html>
-    <head>
-        <title>dottxt - Token Engineering</title>
-        <!-- PostHog analytics -->
-        <script>
-            !function(t,e){var o,n,p,r;e.__SV||(window.posthog=e,e._i=[],e.init=function(i,s,a){function g(t,e){var o=e.split(".");2==o.length&&(t=t[o[0]],e=o[1]),t[e]=function(){t.push([e].concat(Array.prototype.slice.call(arguments,0)))}}(p=t.createElement("script")).type="text/javascript",p.async=!0,p.src=s.api_host+"/static/array.js",(r=t.getElementsByTagName("script")[0]).parentNode.insertBefore(p,r);var u=e;for(void 0!==a?u=e[a]=[]:a="posthog",u.people=u.people||[],u.toString=function(t){var e="posthog";return"posthog"!==a&&(e+="."+a),t||(e+=" (stub)"),e},u.people.toString=function(){return u.toString(1)+".people (stub)"},o="capture identify alias people.set people.set_once set_config register register_once unregister opt_out_capturing has_opted_out_capturing opt_in_capturing reset isFeatureEnabled onFeatureFlags getFeatureFlag getFeatureFlagPayload reloadFeatureFlags group updateEarlyAccessFeatureEnrollment getEarlyAccessFeatures getActiveMatchingSurveys getSurveys onSessionId".split(" "),n=0;n<o.length;n++)g(u,o[n]);e._i.push([i,s,a])},e.__SV=1)}(document,window.posthog||[]);
-            posthog.init('phc_L5c1ud1IlNPP3574tv2tMIrOxEgWZOFbikLP5NdeR71',{api_host:'https://app.posthog.com'})
-        </script>
-        <link href="https://fonts.googleapis.com/css2?family=VT323&display=swap" rel="stylesheet">
-        <link href='//fonts.googleapis.com/css?family=Raleway:400,300,600' rel='stylesheet' type='text/css'>
-        <script src="https://unpkg.com/typeit@8.7.1/dist/index.umd.js"></script>
-        <style>
-            body {
-                background-color: white;
-                margin: auto;
-                max-width: 900px;
-                padding:0 20px;
-                font-family: 'VT323';
-                color: #333;
-            }
 
-            .navbar {
-                position: relative;
-                overflow: hidden;
-            }
-
-           .navbar img {
-                position: absolute; /* remove the logo from the flow */
-                height: 4rem;
-                left: 10px;   /* move the logo to left */
-                top: 1.5rem;
-                vertical-align: middle;
-            }
-
-            .navbar ul{
-                position: absolue;
-                top: 50%;
-                left: 50%;
-                text-align: center;
-            }
-
-            .navbar li {
-                display: inline-block;
-                font-size: 4rem;
-                padding: 0 1rem 0 1rem;
-            }
-
-            .navbar a {
-                display: block;
-                padding: 10px;
-                color: #bfbfbf;
-                text-decoration: none;
-            }
-
-            .navbar a:hover {
-                color: black;
-            }
-
-            .logo {
-                position: relative;
-                overflow: hidden;
-            }
-
-            .logo img {
-                display: block;
-                width: 90%;
-                margin-left: auto;
-                margin-right: auto;
-                padding: 130px 0 40px 0;
-            }
-
-            .text {
-                text-align: center;
-                font-size: 3.6rem;
-                font-weight: 100;
-                padding: 0;
-                /* border: solid; */
-                vertical-align: top;
-            }
-
-            .text #animation {
-                height: 200px;
-                margin: 10px;
-            }
-
-            @keyframes blinker {
-                50% {
-                    opacity: 0;
-                }
-            }
-
-            .beta {
-                text-align: center;
-                font-size: 3.6rem;
-                font-weight: 300;
-                overflow: hidden;
-            }
-
-            .beta a {
-                animation: blinker 1.3s step-start infinite;
-            }
-
-        </style>
-   </head>
-    <body>
-        <div class="navbar">
-            <img src="logo.png">
-            <ul>
-                <li><a href="http://blog.dottxt.co" target="_blank">Blog</a></li>
-                <li><a href="https://github.com/outlines-dev/outlines" target="_blank">GitHub</a></li>
-                <li><a href="https://jobs.ashbyhq.com/dottxt" target="_blank">We're hiring</a></li>
-            </ul>
-        </div>
-        <div class="logo">
-            <img src="dotjson.png">
-        </div>
-        <div class="text">
-            <p id="animation"></p>
-        </div>
-        <div class="beta">
-            <img src="star.gif">
-            >>> <a href="https://h1xbpbfsf0w.typeform.com/to/ZgBCvJHF">Sign up for the beta API</a> <<<
-            <img src="star.gif">
-        </div>
-    </body>
-
+<head>
+    <title>dottxt - make ai speak computer</title>
+    <!-- PostHog analytics -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script>
+        !function (t, e) { var o, n, p, r; e.__SV || (window.posthog = e, e._i = [], e.init = function (i, s, a) { function g(t, e) { var o = e.split("."); 2 == o.length && (t = t[o[0]], e = o[1]), t[e] = function () { t.push([e].concat(Array.prototype.slice.call(arguments, 0))) } } (p = t.createElement("script")).type = "text/javascript", p.async = !0, p.src = s.api_host + "/static/array.js", (r = t.getElementsByTagName("script")[0]).parentNode.insertBefore(p, r); var u = e; for (void 0 !== a ? u = e[a] = [] : a = "posthog", u.people = u.people || [], u.toString = function (t) { var e = "posthog"; return "posthog" !== a && (e += "." + a), t || (e += " (stub)"), e }, u.people.toString = function () { return u.toString(1) + ".people (stub)" }, o = "capture identify alias people.set people.set_once set_config register register_once unregister opt_out_capturing has_opted_out_capturing opt_in_capturing reset isFeatureEnabled onFeatureFlags getFeatureFlag getFeatureFlagPayload reloadFeatureFlags group updateEarlyAccessFeatureEnrollment getEarlyAccessFeatures getActiveMatchingSurveys getSurveys onSessionId".split(" "), n = 0; n < o.length; n++)g(u, o[n]); e._i.push([i, s, a]) }, e.__SV = 1) }(document, window.posthog || []);
+        posthog.init('phc_L5c1ud1IlNPP3574tv2tMIrOxEgWZOFbikLP5NdeR71', { api_host: 'https://app.posthog.com' })
+    </script>
+    <link href="https://fonts.googleapis.com/css2?family=VT323&display=swap" rel="stylesheet">
+    <link href='//fonts.googleapis.com/css?family=Raleway:400,300,600' rel='stylesheet' type='text/css'>
+    <script src="https://unpkg.com/typeit@8.7.1/dist/index.umd.js"></script>
+    <style>
+        @font-face {
+            font-family: 'NeueBit';
+            src: url('fonts/PPNeueBit-Regular.woff2') format('woff2'),
+                url('fonts/PPNeueBit-Regular.woff') format('woff');
+            font-weight: normal;
+            font-style: normal;
+        }
+
+        @font-face {
+            font-family: 'NeueBit Bold';
+            src: url('fonts/PPNeueBit-Bold.woff2') format('woff2'),
+                url('fonts/PPNeueBit-Bold.woff') format('woff');
+            font-weight: normal;
+            font-style: normal;
+        }
+
+        @font-face {
+            font-family: 'Montreal';
+            src: url('fonts/PPNeueMontreal-Regular.woff2') format('woff2'),
+                url('fonts/PPNeueMontreal-Regular.woff') format('woff');
+            font-weight: normal;
+            font-style: normal;
+        }
+
+        body {
+            background-color: white;
+            margin: 0;
+            display: flex;
+            flex-direction: column;
+            justify-content: start;
+            align-items: center;
+            height: 100vh;
+            font-family: 'NeueBit';
+            color: #333;
+            text-align: center;
+            margin: 0 auto;
+            width: 100%;
+        }
+
+        p {
+            margin: 0;
+        }
+
+        .container {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding-top: 2rem;
+            padding-bottom: 2rem;
+            height: 100%;
+        }
+
+
+        a {
+            display: block;
+            color: #444;
+            text-decoration-thickness: 2px;
+            text-decoration: underline;
+        }
+
+        a:hover {
+            color: blue;
+            text-decoration-color: blue;
+            text-decoration-thickness: 2px;
+        }
+
+        /* Set links already clicked to black */
+        a:visited {
+            color: #444;
+        }
+
+        a:visited:hover {
+            color: blue;
+            text-decoration-color: blue;
+            text-decoration-thickness: 2px;
+        }
+
+        .navbar {
+            display: flex;
+            justify-content: start;
+            text-align: center;
+            align-items: center;
+            gap: 2rem;
+            font-size: 3rem;
+        }
+
+        .navbar a {
+            font-family: 'NeueBit Bold';
+        }
+
+        .navbar-signup {
+            display: flex;
+            flex-direction: row !important;
+            align-items: center;
+            justify-content: center;
+            gap: 1rem !important;
+            padding-top: 2.5rem;
+        }
+
+        .navbar-signup img {
+            width: 3rem;
+        }
+
+        .logo {
+            font-size: 2rem;
+            padding-top: 10vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding-bottom: 2rem;
+        }
+
+        .logo img {
+            width: 100%;
+            max-width: 200px;
+        }
+
+        .company-name {
+            font-size: 10rem;
+            font-family: 'NeueBit Bold';
+            color: #000;
+        }
+
+        @media screen and (max-width: 640px) {
+            /* Stack links vertically on small screens */
+            .navbar {
+                overflow: hidden;
+                display: flex;
+                justify-content: start;
+                flex-direction: column;
+                text-align: center;
+                width: 100%;
+                align-items: center;
+                gap: 2rem;
+            }
+
+            .container {
+                height: fit-content;
+            }
+        }
+
+        @media screen and (max-height: 400px) {
+            /* Prevents the logo from "smushing" against the
+            top of the viewport when the screen height is small */
+            .container {
+                height: fit-content;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Fixed at top -->
+
+
+    <div class="container">
+
+
+        <div class="logo">
+            <img src="logo.svg">
+            <span class="company-name">.txt</span>
+            <span id="animation"></span>
+        </div>
+
+        <div class="navbar">
+            <a href="https://blog.dottxt.co" target="_blank">blog</a>
+            <a href="https://github.com/outlines-dev/outlines" target="_blank">github</a>
+            <a href="https://jobs.ashbyhq.com/dottxt" target="_blank">careers</a>
+        </div>
+
+        <div class="navbar navbar-signup">
+            <img src="star.gif">
+            <p><a href="https://h1xbpbfsf0w.typeform.com/to/ZgBCvJHF">Try our beta api</a></p>
+            <img src="star.gif">
+        </div>
+
+    </div>
+</body>
+
+<script>
         new TypeIt("#animation", {
             speed: 60,
             afterComplete: function (instance) {
                 instance.destroy();
             }
         })
-        .type("A fast & reliable model")
+        .type("Large Language Models")
         .break()
-        .type("for information extraction.")
+        .type("that speak the language")
         .break()
-        .type("Guaranteed JSON.")
+        .type("of <b>every</b> application.")
         .go();
-    </script>
+</script>
+
 </html>
