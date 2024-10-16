@@ -1,211 +1,446 @@
 <html>
+    <head>
+        <title>dottxt - make ai speak computer</title>
+        <!-- PostHog analytics -->
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <script>
+            !(function (t, e) {
+                var o, n, p, r;
+                e.__SV ||
+                    ((window.posthog = e),
+                    (e._i = []),
+                    (e.init = function (i, s, a) {
+                        function g(t, e) {
+                            var o = e.split(".");
+                            2 == o.length && ((t = t[o[0]]), (e = o[1])),
+                                (t[e] = function () {
+                                    t.push(
+                                        [e].concat(
+                                            Array.prototype.slice.call(
+                                                arguments,
+                                                0,
+                                            ),
+                                        ),
+                                    );
+                                });
+                        }
+                        ((p = t.createElement("script")).type =
+                            "text/javascript"),
+                            (p.async = !0),
+                            (p.src = s.api_host + "/static/array.js"),
+                            (r =
+                                t.getElementsByTagName(
+                                    "script",
+                                )[0]).parentNode.insertBefore(p, r);
+                        var u = e;
+                        for (
+                            void 0 !== a ? (u = e[a] = []) : (a = "posthog"),
+                                u.people = u.people || [],
+                                u.toString = function (t) {
+                                    var e = "posthog";
+                                    return (
+                                        "posthog" !== a && (e += "." + a),
+                                        t || (e += " (stub)"),
+                                        e
+                                    );
+                                },
+                                u.people.toString = function () {
+                                    return u.toString(1) + ".people (stub)";
+                                },
+                                o =
+                                    "capture identify alias people.set people.set_once set_config register register_once unregister opt_out_capturing has_opted_out_capturing opt_in_capturing reset isFeatureEnabled onFeatureFlags getFeatureFlag getFeatureFlagPayload reloadFeatureFlags group updateEarlyAccessFeatureEnrollment getEarlyAccessFeatures getActiveMatchingSurveys getSurveys onSessionId".split(
+                                        " ",
+                                    ),
+                                n = 0;
+                            n < o.length;
+                            n++
+                        )
+                            g(u, o[n]);
+                        e._i.push([i, s, a]);
+                    }),
+                    (e.__SV = 1));
+            })(document, window.posthog || []);
+            posthog.init("phc_L5c1ud1IlNPP3574tv2tMIrOxEgWZOFbikLP5NdeR71", {
+                api_host: "https://app.posthog.com",
+            });
+        </script>
+        <link
+            href="https://fonts.googleapis.com/css2?family=VT323&display=swap"
+            rel="stylesheet"
+        />
+        <link
+            href="//fonts.googleapis.com/css?family=Raleway:400,300,600"
+            rel="stylesheet"
+            type="text/css"
+        />
+        <script src="https://unpkg.com/typeit@8.7.1/dist/index.umd.js"></script>
+        <style>
+            @font-face {
+                font-family: "NeueBit";
+                src:
+                    url("fonts/PPNeueBit-Regular.woff2") format("woff2"),
+                    url("fonts/PPNeueBit-Regular.woff") format("woff");
+                font-weight: normal;
+                font-style: normal;
+            }
 
-<head>
-    <title>dottxt - make ai speak computer</title>
-    <!-- PostHog analytics -->
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <script>
-        !function (t, e) { var o, n, p, r; e.__SV || (window.posthog = e, e._i = [], e.init = function (i, s, a) { function g(t, e) { var o = e.split("."); 2 == o.length && (t = t[o[0]], e = o[1]), t[e] = function () { t.push([e].concat(Array.prototype.slice.call(arguments, 0))) } } (p = t.createElement("script")).type = "text/javascript", p.async = !0, p.src = s.api_host + "/static/array.js", (r = t.getElementsByTagName("script")[0]).parentNode.insertBefore(p, r); var u = e; for (void 0 !== a ? u = e[a] = [] : a = "posthog", u.people = u.people || [], u.toString = function (t) { var e = "posthog"; return "posthog" !== a && (e += "." + a), t || (e += " (stub)"), e }, u.people.toString = function () { return u.toString(1) + ".people (stub)" }, o = "capture identify alias people.set people.set_once set_config register register_once unregister opt_out_capturing has_opted_out_capturing opt_in_capturing reset isFeatureEnabled onFeatureFlags getFeatureFlag getFeatureFlagPayload reloadFeatureFlags group updateEarlyAccessFeatureEnrollment getEarlyAccessFeatures getActiveMatchingSurveys getSurveys onSessionId".split(" "), n = 0; n < o.length; n++)g(u, o[n]); e._i.push([i, s, a]) }, e.__SV = 1) }(document, window.posthog || []);
-        posthog.init('phc_L5c1ud1IlNPP3574tv2tMIrOxEgWZOFbikLP5NdeR71', { api_host: 'https://app.posthog.com' })
-    </script>
-    <link href="https://fonts.googleapis.com/css2?family=VT323&display=swap" rel="stylesheet">
-    <link href='//fonts.googleapis.com/css?family=Raleway:400,300,600' rel='stylesheet' type='text/css'>
-    <script src="https://unpkg.com/typeit@8.7.1/dist/index.umd.js"></script>
-    <style>
-        @font-face {
-            font-family: 'NeueBit';
-            src: url('fonts/PPNeueBit-Regular.woff2') format('woff2'),
-                url('fonts/PPNeueBit-Regular.woff') format('woff');
-            font-weight: normal;
-            font-style: normal;
-        }
+            @font-face {
+                font-family: "NeueBit Bold";
+                src:
+                    url("fonts/PPNeueBit-Bold.woff2") format("woff2"),
+                    url("fonts/PPNeueBit-Bold.woff") format("woff");
+                font-weight: normal;
+                font-style: normal;
+            }
 
-        @font-face {
-            font-family: 'NeueBit Bold';
-            src: url('fonts/PPNeueBit-Bold.woff2') format('woff2'),
-                url('fonts/PPNeueBit-Bold.woff') format('woff');
-            font-weight: normal;
-            font-style: normal;
-        }
+            @font-face {
+                font-family: "Montreal";
+                src:
+                    url("fonts/PPNeueMontreal-Regular.woff2") format("woff2"),
+                    url("fonts/PPNeueMontreal-Regular.woff") format("woff");
+                font-weight: normal;
+                font-style: normal;
+            }
 
-        @font-face {
-            font-family: 'Montreal';
-            src: url('fonts/PPNeueMontreal-Regular.woff2') format('woff2'),
-                url('fonts/PPNeueMontreal-Regular.woff') format('woff');
-            font-weight: normal;
-            font-style: normal;
-        }
-
-        body {
-            background-color: white;
-            margin: 0;
-            display: flex;
-            flex-direction: column;
-            justify-content: start;
-            align-items: center;
-            height: 100vh;
-            font-family: 'NeueBit';
-            color: #333;
-            text-align: center;
-            margin: 0 auto;
-            width: 100%;
-        }
-
-        p {
-            margin: 0;
-        }
-
-        .container {
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            padding-top: 2rem;
-            padding-bottom: 2rem;
-            height: 100%;
-        }
-
-
-        a {
-            display: block;
-            color: #444;
-            text-decoration-thickness: 2px;
-            text-decoration: underline;
-        }
-
-        a:hover {
-            color: blue;
-            text-decoration-color: blue;
-            text-decoration-thickness: 2px;
-        }
-
-        /* Set links already clicked to black */
-        a:visited {
-            color: #444;
-        }
-
-        a:visited:hover {
-            color: blue;
-            text-decoration-color: blue;
-            text-decoration-thickness: 2px;
-        }
-
-        .navbar {
-            display: flex;
-            justify-content: start;
-            text-align: center;
-            align-items: center;
-            gap: 2rem;
-            font-size: 3rem;
-        }
-
-        .navbar a {
-            font-family: 'NeueBit Bold';
-        }
-
-        .navbar-signup {
-            display: flex;
-            flex-direction: row !important;
-            align-items: center;
-            justify-content: center;
-            gap: 1rem !important;
-            padding-top: 2.5rem;
-        }
-
-        .navbar-signup img {
-            width: 3rem;
-        }
-
-        .logo {
-            font-size: 2rem;
-            padding-top: 10vh;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            padding-bottom: 2rem;
-        }
-
-        .logo img {
-            width: 100%;
-            max-width: 200px;
-        }
-
-        .company-name {
-            font-size: 10rem;
-            font-family: 'NeueBit Bold';
-            color: #000;
-        }
-
-        @media screen and (max-width: 640px) {
-            /* Stack links vertically on small screens */
-            .navbar {
-                overflow: hidden;
+            body {
+                background-color: white;
+                margin: 0;
                 display: flex;
-                justify-content: start;
                 flex-direction: column;
+                justify-content: start;
+                align-items: center;
+                height: 100vh;
+                font-family: "NeueBit";
+                color: #333;
                 text-align: center;
+                margin: 0 auto;
                 width: 100%;
+            }
+
+            p {
+                margin: 0;
+            }
+
+            .dottxt-inline {
+                font-family: NeueBit Bold;
+                font-size: 2.2rem;
+                font-weight: bold;
+                line-height: 1;
+            }
+
+            .container {
+                /* display: flex; */
+                /* flex-direction: column; */
+                /* justify-content: center; */
+                align-items: center;
+                padding-left: 2rem;
+                padding-right: 2rem;
+                /* padding-top: 2rem; */
+                /* padding-bottom: 4rem; */
+                height: 100%;
+            }
+
+            a {
+                /* display: block; */
+                color: #444;
+                text-decoration-thickness: 2px;
+                text-decoration: underline;
+            }
+
+            a:hover {
+                color: blue;
+                text-decoration-color: blue;
+                text-decoration-thickness: 2px;
+            }
+
+            /* Set links already clicked to black */
+            a:visited {
+                color: #444;
+            }
+
+            a:visited:hover {
+                color: blue;
+                text-decoration-color: blue;
+                text-decoration-thickness: 2px;
+            }
+
+            .manifesto {
+                max-width: 800px;
+                width: 100%;
+                font-size: 2rem;
+                font-family: "Montreal";
+                text-align: left;
+                padding-bottom: 2.5rem;
+                line-height: 1.5;
+            }
+
+            h1 {
+                font-size: 6rem;
+                font-family: "NeueBit Bold";
+                line-height: 0.8;
+                margin-top: 1rem;
+            }
+
+            .navbar {
+                display: flex;
+                justify-content: center;
+                text-align: center;
                 align-items: center;
                 gap: 2rem;
+                font-size: 4rem;
+                width: 100%;
+                padding-bottom: 10vh;
+                padding-top: 2.5rem;
             }
 
-            .container {
-                height: fit-content;
+            .navbar a {
+                font-family: "NeueBit Bold";
             }
-        }
 
-        @media screen and (max-height: 400px) {
-            /* Prevents the logo from "smushing" against the
+            .navbar-signup {
+                display: flex;
+                flex-direction: row !important;
+                align-items: center;
+                justify-content: center;
+                gap: 1rem !important;
+                padding-top: 2.5rem;
+            }
+
+            .navbar-signup img {
+                width: 3rem;
+            }
+
+            .logo {
+                padding-top: 10vh;
+                padding-bottom: 7vh;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
+            }
+
+            .logo img {
+                width: 100%;
+                max-width: 500px;
+            }
+
+            .company-name {
+                font-size: 10rem;
+                font-family: "NeueBit Bold";
+                color: #000;
+            }
+
+            @media screen and (max-width: 770px) {
+                /* Stack links vertically on small screens */
+                .navbar {
+                    /* overflow: hidden; */
+                    /* display: flex;
+                    justify-content: start;
+                    flex-direction: column; */
+                    /* text-align: center; */
+                    width: 100%;
+                    align-items: center;
+                    gap: 2rem;
+                    font-size: 4rem;
+                }
+
+                .logo img {
+                    width: 100%;
+                    max-width: 400px;
+                }
+
+                .container {
+                    height: fit-content;
+                }
+
+                .manifesto {
+                    font-size: 1.5rem;
+                    line-height: 1.5;
+                }
+
+                h1 {
+                    font-size: 4rem;
+                }
+            }
+
+            @media screen and (max-width: 730px) {
+                .logo img {
+                    width: 100%;
+                    max-width: 700px;
+                }
+
+                .navbar {
+                    font-size: 3rem;
+                    gap: 1rem;
+                }
+            }
+
+            @media screen and (max-width: 570px) {
+                .logo img {
+                    width: 100%;
+                    max-width: 400px;
+                }
+
+                .navbar {
+                    font-size: 2.5rem;
+                    gap: 1rem;
+                }
+            }
+
+            @media screen and (max-width: 490px) {
+                /* Prevents the logo from "smushing" against the
             top of the viewport when the screen height is small */
-            .container {
-                height: fit-content;
+                .container {
+                    height: fit-content;
+                }
+
+                .logo img {
+                    width: 100%;
+                    max-width: 300px;
+                }
+
+                /* Shrink h1 */
+                h1 {
+                    font-size: 4rem;
+                }
+
+                .navbar {
+                    /* Column if on mobile */
+                    display: flex;
+                    font-size: 3rem;
+                    flex-direction: column;
+                    justify-content: center;
+                    align-items: center;
+                    gap: 1rem;
+                    padding-top: 1rem;
+                }
             }
-        }
-    </style>
-</head>
+        </style>
+    </head>
 
-<body>
-    <!-- Fixed at top -->
+    <body>
+        <!-- Fixed at top -->
+        <div class="container">
+            <div class="logo">
+                <img src="logo-signature.svg" />
+            </div>
 
+            <!-- Manifesto -->
+            <div class="manifesto">
+                There are hidden rules in every system.
+                <br />
+                <br />
+                Rules to govern the sentences we write, the software we code,
+                and the music we play. These rules aren’t created to subjugate,
+                but to integrate. Without them, the different parts of a system
+                can’t work together to form something greater.
+                <br />
+                <br />
+                Some believe that these rules reflect our unique way of thinking
+                and conceiving of the world. But to computers alike, without
+                structure there is chaos. Keywords and variable names, out of
+                order, don’t make a program. You need a grammar —
+                <i>a syntax</i> — to make the system work.
+                <br />
+                <br />
+                For almost a century, we’ve been teaching our machines the
+                grammars of our world to help us work, play, and create better.
+                But as of yet, our AIs remain stubbornly resistant to learning
+                them. While they can string together sentences to emulate human
+                syntax, they’ve yet to learn the syntax of computer, and of the
+                applications that run our world.
+                <br />
+                <br />
+                Without more <i>predictable</i> outputs, LLMs simply can’t be
+                integrated into our systems and businesses. It’s their
+                fundamental flaw.
+                <br />
+                <br />
+                We believe that this demands a new programming paradigm, which
+                allows LLMs to respond in a way that software understands. Until
+                then, our generations are fun. But they are not transformative.
+                <br />
+                <br />
+                Until then, it’s just the beginning for how AI will change our
+                world.
+                <br />
+                <br />
+                <h1>
+                    Our mission is to help AI speak the language of every
+                    application
+                </h1>
+                This is why we built <span class="dottxt-inline">.txt</span>. A tool to make LLMs reliable
+                enough for the world to build on. A spellcheck for programming
+                the future. And more broadly, an ecosystem where developers can
+                design, execute, deploy, and evaluate LLM applications.
+                <br />
+                <br />
+                But how? LLMs are probabilistic by nature, so we believe the
+                only solution is implementing guard rails at the outset based on
+                your unique criteria… taking all potential probabilities and
+                setting all the useless ones to zero. In other words, <span class="dottxt-inline">.txt</span> stops
+                LLMs from making errors before they even make them.
+                <br />
+                <br />Fewer tokens. Less money. More efficiency. We are not the
+                average AI engineers.
+                <br />
+                <br />
+                We cut our teeth in applied statistical modeling — a job where
+                you make bespoke models specially designed to give only correct
+                answers. To us, applying this field to LLMs is the logical next
+                step. The missing layer that will make AI truly useful, cutting
+                out the noise and uncertainty endemic to LLMs.
+                <br />
+                <br />
+                It’s the thing that makes LLMs act like <i>computers</i>.
+                Finally. If your goal is to sound conversational and believable
+                enough, the everyday language works just fine. But to be good
+                enough to <i>compute</i> with, the level of clarity must be far
+                higher. In this sense, LLMs are, ironically, a regression!
+                <br />
+                <br />
+                So, let’s create the new rules for AI and invent a new way to
+                <i>program</i> with them… together.
+                Join the discussion on <a href="https://discord.gg/ErZ8XnCmkQ">Discord</a>.
+                Or just <a href="https://x.com/dottxtai">tweet</a> at us. We can’t wait
+                to see what you create!
+                <br />
+                <br />
+                -Remi, Brandon, and Dan
+            </div>
+            <hr/>
+            <div class="navbar">
+                <img src="star.gif" />
+                <a href="https://blog.dottxt.co" target="_blank">blog</a>
+                <a
+                    href="https://github.com/outlines-dev/outlines"
+                    target="_blank"
+                    >github</a
+                >
+                <a href="https://jobs.ashbyhq.com/dottxt" target="_blank"
+                    >careers</a
+                >
+                <a href="https://h1xbpbfsf0w.typeform.com/to/ZgBCvJHF"
+                    >beta api</a
+                >
+                <img src="star.gif" />
+            </div>
 
-    <div class="container">
-
-
-        <div class="logo">
-            <img src="logo.svg">
-            <span class="company-name">.txt</span>
-            <span id="animation"></span>
         </div>
+    </body>
 
-        <div class="navbar">
-            <a href="https://blog.dottxt.co" target="_blank">blog</a>
-            <a href="https://github.com/outlines-dev/outlines" target="_blank">github</a>
-            <a href="https://jobs.ashbyhq.com/dottxt" target="_blank">careers</a>
-        </div>
-
-        <div class="navbar navbar-signup">
-            <img src="star.gif">
-            <p><a href="https://h1xbpbfsf0w.typeform.com/to/ZgBCvJHF">Try our beta api</a></p>
-            <img src="star.gif">
-        </div>
-
-    </div>
-</body>
-
-<script>
+    <script>
         new TypeIt("#animation", {
             speed: 60,
             afterComplete: function (instance) {
                 instance.destroy();
-            }
+            },
         })
-        .type("Large Language Models")
-        .break()
-        .type("that speak the language")
-        .break()
-        .type("of <b>every</b> application.")
-        .go();
-</script>
-
+            .type("Large Language Models")
+            .break()
+            .type("that speak the language")
+            .break()
+            .type("of <b>every</b> application.")
+            .go();
+    </script>
 </html>
